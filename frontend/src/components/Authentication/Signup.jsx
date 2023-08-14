@@ -11,8 +11,7 @@ import {
 import React, { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import axios from "axios";
-import { useHistory } from 'react-router-dom'; 
-
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const [name, setName] = useState();
@@ -25,7 +24,6 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
   const history = useHistory();
-
 
   const handleClick = (pics) => {
     setShow(!show);
@@ -118,12 +116,12 @@ const Signup = () => {
       toast({
         title: "Registration successful",
         duration: 5000,
-        status:"success",
+        status: "success",
         isClosable: true,
-        position: "top"
+        position: "top",
       });
 
-      localStorage.setItem('userInfo', JSON.stringify(data));
+      localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");
     } catch (error) {
@@ -133,7 +131,7 @@ const Signup = () => {
         status: "error",
         duration: 5000,
         isClosable: true,
-        position: "top"
+        position: "top",
       });
     }
   };
@@ -184,7 +182,13 @@ const Signup = () => {
             value={password}
           />
           <InputRightElement w="4.5em">
-            <Button h="1.75em" size="sm" onClick={handleClick} color="black">
+            <Button
+              h="1.75em"
+              size="md"
+              onClick={handleClick}
+              color="black"
+              variant="ghost"
+            >
               {show ? <ViewOffIcon /> : <ViewIcon />}
             </Button>
           </InputRightElement>
@@ -208,9 +212,10 @@ const Signup = () => {
           <InputRightElement w="4.5em">
             <Button
               h="1.75em"
-              size="sm"
+              size="md"
               onClick={handleConfirmClick}
               color="black"
+              variant="ghost"
             >
               {showconfirm ? <ViewOffIcon /> : <ViewIcon />}
             </Button>
