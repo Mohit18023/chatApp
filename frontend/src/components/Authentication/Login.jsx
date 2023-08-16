@@ -116,7 +116,7 @@ export default function Login() {
         onClick={submitHandler}
         isLoading={loading}
       >
-        Submit
+        Login
       </Button>
       <Button
        width="100%" 

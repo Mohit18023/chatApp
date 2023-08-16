@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-export default function ChatPage() {
-    const [chats, setChats] = useState([]);
-    const fetchChats = async () => {
-        const {data} = await axios.get('/api/chat');
-        setChats(data);
-    }
-    useEffect(() => {
-        fetchChats();
-    }, [])
-  return (
-    <div>
-      {chats.map((chat,index) => (
-        <div key={chat._id}>{chat.chatName}</div>
-      ))}
-    </div>
-  )
+import { ChatState } from "../Context/ChatProvider"
+import SideDrawer from "../components/miscellaneous/SideDrawer";
+
+const ChatPage = () => {
+  const { user } = ChatState();
+
+  return <div style={{ width: "100%" }}>
+      { user && <SideDrawer />}
+  </div>
 }
+
+export default ChatPage;
